@@ -1,4 +1,4 @@
-###Packages needed:
+### Packages needed:
 AUR:
 
 python python-pip cargo npm node neovim qtile-extras-git git make alacritty
