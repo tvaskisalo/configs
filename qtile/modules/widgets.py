@@ -1,17 +1,7 @@
 from qtile_extras import widget
 from libqtile import qtile
-
-colors = [
-	      ["#282c34", "#282c34"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
-          ["#e1acff", "#e1acff"], # window name
-          ["#ecbbfb", "#ecbbfb"]  # backbround for inactive screens
-] 
-
+from qtile_extras.widget.decorations import RectDecoration
+from .colours import colours
 
 widget_defaults = dict(
     font='Cantarell',
@@ -49,9 +39,17 @@ class MyVolume(widget.Volume):
                 f.write(str(self.volume) + "\n")
 
 volume = MyVolume(
-    fontsize=18,
+    fontsize=22,
     font='Font Awesome 5 Free',
-    foreground=colors[4],
-    background='#2f343f',
-    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("pavucontrol")}
+    foreground=colours["Pink"],
+    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("pavucontrol")},
+    padding=10,
+    decorations = [
+        RectDecoration(
+            filled=True,
+            groups=True,
+            radius=10,
+            colour=colours["Grey"]
+            )
+        ]
 )

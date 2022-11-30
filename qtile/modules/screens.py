@@ -5,6 +5,7 @@ from .keys import terminal
 from .colours import colours
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
+from qtile_extras.widget import WiFiIcon
 
 screens = [
     Screen(
@@ -35,6 +36,7 @@ screens = [
                     inactive=colours["Black"],
                     active=colours["Black"],
                     margin_x=5,
+                    fontsize=12,
                     hide_unused=True,
                     block_highlight_text_color=colours["Yellow"],
                     decorations = [
@@ -68,14 +70,14 @@ screens = [
                         ]),
                 widget.Spacer(),
                 widget.UPowerWidget(
-                    battery_height=15,
-                    border_colour=colours["Grey"],
-                    border_charge_colour=colours["Grey"],
-                    border_critical_colour=colours["Grey"],
+                    battery_height=18,
+                    border_colour=colours["Black"],
+                    border_charge_colour=colours["Black"],
+                    border_critical_colour=colours["Black"],
                     text_display_time=2,
                     battery_width=30,
                     foreground=colours["Light-green"],
-                    margin=5,
+                    margin=8,
                     fill_normal=colours["Light-green"],
                     fill_low=colours["Yellow"],
                     fill_critical=colours["Pink"],
@@ -86,11 +88,11 @@ screens = [
                             filled=True,
                             group=True,
                             radius=10,
-                            colour=colours["Black"]
+                            colour=colours["Yellow"]
                             )
                         ] 
                     ),
-                widget.Spacer(15),
+                widget.Spacer(10),
                 widget.CheckUpdates(
                     update_interval=1800,
                     distro="Arch_yay",
@@ -101,14 +103,8 @@ screens = [
                         lambda: qtile.cmd_spawn(terminal + ' -e yay -Syu')
                     },
                     background="#2f343f"),
-                widget.Systray(icon_size = 20),
-                widget.TextBox(
-                       text = '',
-                       padding = 0,
-                       fontsize = 28,
-                       foreground='#2f343f'
-                       ), 
                 volume,
+                widget.Spacer(10)
             ],
             30,  # height in px
             background=colours["Grey"]# background color
