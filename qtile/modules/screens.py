@@ -5,7 +5,6 @@ from .keys import terminal
 from .colours import colours
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
-from qtile_extras.widget import WiFiIcon
 
 screens = [
     Screen(
@@ -78,9 +77,9 @@ screens = [
                     battery_width=30,
                     foreground=colours["Light-green"],
                     margin=8,
-                    fill_normal=colours["Light-green"],
-                    fill_low=colours["Yellow"],
-                    fill_critical=colours["Pink"],
+                    fill_normal=colours["Black"],
+                    fill_low=colours["Black"],
+                    fill_critical=colours["Red"],
                     text_discharging="({percentage:.0f}%) {tte} remaining",
                     text_charging="({percentage:.0f}%) {ttf} to full",
                     decorations = [
@@ -104,9 +103,47 @@ screens = [
                     },
                     background="#2f343f"),
                 volume,
-                widget.Spacer(10)
+                widget.Spacer(10),
+                widget.Image(
+                    filename='~/.config/qtile/wifi.png',
+                    scale = True,
+                    padding = 5,
+                    margin_y = 5,
+                    decorations = [
+                        RectDecoration(
+                            filled=True,
+                            group=True,
+                            radius=10,
+                            colour=colours["Light-green"]
+                        )
+                    ],
+                    mouse_callbacks = { 
+                        'Button1':
+                        lambda: qtile.cmd_spawn('nm-connection-editor')
+                    },
+                ),
+                widget.Spacer(10),
+                widget.Image(
+                    filename='~/.config/qtile/bluetooth.png',
+                    scale = True,
+                    padding=5,
+                    margin_y=5,
+                    decorations = [
+                            RectDecoration(
+                                filled=True,
+                                group=True,
+                                radius=10,
+                                colour=colours["Blue"]
+                            )
+                        ],
+                    mouse_callbacks = { 
+                        'Button1':
+                        lambda: qtile.cmd_spawn('blueman-manager')
+                    },
+            )
             ],
             30,  # height in px
             background=colours["Grey"]# background color
-        ), ),
+        ), 
+    ),
 ]
