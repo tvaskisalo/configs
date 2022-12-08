@@ -11,3 +11,7 @@ Other:
 
 LunarVim
 Enable bluetooth
+
+Wallpaper source: [here](https://wall.alphacoders.com/profile.php?id=134167)
+
+Wifi-icon and bluetooth icon source: [here](https://www.flaticon.com/)
