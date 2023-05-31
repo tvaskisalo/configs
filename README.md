@@ -1,7 +1,7 @@
 ### Packages needed:
 AUR:
 
-python python-pip cargo npm node neovim qtile-extras-git git make alacritty nm-connection-manager blueman
+python python-pip cargo npm nodejs neovim qtile-extras-git git make alacritty nm-connection-manager blueman
 
 Pip:
 
