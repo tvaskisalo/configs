@@ -1,4 +1,5 @@
 ## Install
+
 Neovim configurations should install automatically as long as neovim is installed and this directory is copied to .config/nvim
 
 In addition install these:

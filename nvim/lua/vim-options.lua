@@ -9,7 +9,7 @@ vim.o.wrap = false       -- Disable line wrap
 vim.g.mapleader = ' '
 
 -- Clipboard
-vim.opt.clipboard='unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 
 -- Split navigation
