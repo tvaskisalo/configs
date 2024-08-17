@@ -91,13 +91,6 @@
   ];
 
   programs = {
-    # basic configuration of git, please change to your own
-    git = {
-      enable = true;
-      userName = "tvaskisalo";
-      userEmail = "tapani.vaskisalo@outlook.com";
-    };
-
     # starship - an customizable prompt for any shell
     starship = {
       enable = true;
