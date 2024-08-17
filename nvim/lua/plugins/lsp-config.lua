@@ -8,9 +8,7 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "kotlin_language_server", "lua_ls", "markdown_oxide", "rust_analyzer", "tsserver" },
-			})
+			require("mason-lspconfig").setup()
 		end,
 	},
 	{
@@ -38,25 +36,7 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.nixd.setup({
-   			cmd = { "nixd" },
-				settings = {
-					nixd = {
-						 nixpkgs = {
-									expr = "import <nixpkgs> { }",
-						 },
-						 formatting = {
-								command = { "nixpkgs-fmt" },
-						 },
-						 options = {
-								nixos = {
-									 expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.k-on.options',
-								},
-								home_manager = {
-									 expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations."ruixi@k-on".options',
-								},
-						 },
-					},
-				},
+				capabilities = capabilities,
 			})
 			vim.keymap.set("n", "<space>T", vim.lsp.buf.type_definition, {})
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
