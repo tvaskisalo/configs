@@ -87,7 +87,6 @@
   console.keyMap = "fi";
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
@@ -97,7 +96,7 @@
   users.users.tvaskisalo = {
     isNormalUser = true;
     description = "tvaskisalo";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ firefox kate ];
   };
 
@@ -120,6 +119,13 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Enable docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -127,6 +133,7 @@
     #  wget
     git
     nodejs
+    gradle
     unzip
     nerdfonts
     gcc
@@ -134,12 +141,15 @@
     gh
     spotify
     steam
+    atlauncher
+    jdk21
     #  LSP
     nixd
     typescript
     lua-language-server
     rust-analyzer
     markdown-oxide
+    kotlin-language-server
     #  Linters
     stylua
     prettierd
@@ -189,6 +199,19 @@
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
+  };
+
+  xdg.configFile = {
+    "nvim/lua".source = ../../../../nvim/lua;
+    "nvim/after".source = ../../../../nvim/after;
+    "nvim/ftplugin".source = ../../../../nvim/ftplugin;
+    "nvim/init.lua".source = ../../../../nvim/init.lua;
+    #      nvim = {
+    #        source = 
+    #          config.lib.file.mkOutOfStoreSymlink #../../../nvim;
+    #          "${config.home.homeDirectory}/dotfiles/nvim";
+    #        recursive = true;
+    #      };
   };
 
   # Load nvidia driver for Xorg and Wayland
