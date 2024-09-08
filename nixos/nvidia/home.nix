@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   # TODO please change the username & home directory to your own
@@ -157,106 +157,6 @@
 
       # set some aliases, feel free to add more or remove some
       shellAliases = { k = "kubectl"; };
-    };
-
-    neovim = let
-      toLuaFile = file: ''
-        lua << EOF
-        ${builtins.readFile file}
-        EOF
-      '';
-    in {
-      enable = true;
-
-      viAlias = true;
-      vimAlias = true;
-
-      extraPackages = with pkgs; [
-        #  LSP
-        nixd
-        typescript
-        lua-language-server
-        rust-analyzer
-        markdown-oxide
-        kotlin-language-server
-        #  Linters
-        stylua
-        prettierd
-        ktlint
-        rustywind
-        nodePackages_latest.alex
-        markdownlint-cli2
-        statix
-        nixfmt
-        ripgrep
-      ];
-
-      plugins = with pkgs.vimPlugins; [
-        {
-          plugin = nvim-lspconfig;
-          config = toLuaFile ./nvim/plugins/lsp-config.lua;
-        }
-        {
-          plugin = alpha-nvim;
-          config = toLuaFile ./nvim/plugins/alpha.lua;
-        }
-        {
-          plugin = catppuccin-nvim;
-          config = toLuaFile ./nvim/plugins/catppuccin.lua;
-        }
-        {
-          plugin = completion-nvim;
-          config = toLuaFile ./nvim/plugins/completions.lua;
-        }
-        {
-          plugin = nvim-dap;
-          config = toLuaFile ./nvim/plugins/debugging.lua;
-        }
-        {
-          plugin = lualine-nvim;
-          config = toLuaFile ./nvim/plugins/lualine.lua;
-        }
-        {
-          plugin = none-ls-nvim;
-          config = toLuaFile ./nvim/plugins/none-ls.lua;
-        }
-        {
-          plugin = nvim-tree-lua;
-          config = toLuaFile ./nvim/plugins/nvim-tree.lua;
-        }
-        {
-          plugin = oil-nvim;
-          config = toLuaFile ./nvim/plugins/oil.lua;
-        }
-        {
-          plugin = tmux-nvim;
-          config = toLuaFile ./nvim/plugins/tmux.lua;
-        }
-        {
-          plugin = nvim-treesitter;
-          config = toLuaFile ./nvim/plugins/treesitter.lua;
-        }
-        {
-          plugin = telescope-nvim;
-          config = toLuaFile ./nvim/plugins/telescope.lua;
-        }
-        mason-nvim
-        mason-lspconfig-nvim
-        cmp-nvim-lsp
-        cmp_luasnip
-        telescope-ui-select-nvim
-        luasnip
-        friendly-snippets
-        plenary-nvim
-        nvim-web-devicons
-        nvim-cmp
-        nvim-dap-ui
-        nvim-nio
-      ];
-
-      extraLuaConfig = ''
-        ${builtins.readFile ./nvim/options.lua}
-      '';
     };
   };
 
