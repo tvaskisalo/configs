@@ -100,19 +100,6 @@
     packages = with pkgs; [ firefox kate ];
   };
 
-  # Install neovim
-
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-    tmux = {
-      enable = true;
-      clock24 = true;
-    };
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -126,6 +113,9 @@
     setSocketVariable = true;
   };
 
+  # Set editor to nvim
+  environment.variables.EDITOR = "nvim";
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -133,6 +123,7 @@
     #  wget
     git
     nodejs
+    python3
     gradle
     unzip
     nerdfonts
@@ -143,24 +134,7 @@
     steam
     atlauncher
     jdk21
-    #  LSP
-    nixd
-    typescript
-    lua-language-server
-    rust-analyzer
-    markdown-oxide
-    kotlin-language-server
-    #  Linters
-    stylua
-    prettierd
-    ktlint
-    rustywind
-    nodePackages_latest.alex
-    markdownlint-cli2
-    statix
-    nixfmt
-    vimPlugins.luasnip
-    ripgrep
+
   ];
   hardware = {
 

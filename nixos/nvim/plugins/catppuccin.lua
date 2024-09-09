@@ -1,5 +1,3 @@
-name = "catppuccin"
-priority = 1000
 require("catppuccin").setup({
 	flavour = "mocha",
 	transparent_background = true,

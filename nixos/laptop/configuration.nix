@@ -97,18 +97,8 @@
     packages = with pkgs; [ firefox kate ];
   };
 
-  # Install neovim
-
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-    tmux = {
-      enable = true;
-      clock24 = true;
-    };
-  };
+  # Set editor to nvim
+  environment.variables.EDITOR = "nvim";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

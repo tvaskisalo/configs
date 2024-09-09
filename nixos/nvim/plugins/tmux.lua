@@ -1,5 +1,4 @@
-local tmux = require("tmux")
-tmux.setup({
+require("tmux").setup({
 	copy_sync = {
 		enable = false,
 	},

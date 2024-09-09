@@ -179,6 +179,7 @@
         rust-analyzer
         markdown-oxide
         kotlin-language-server
+        typescript-language-server
         #  Linters
         stylua
         prettierd
@@ -221,14 +222,6 @@
           config = toLuaFile ./nvim/plugins/none-ls.lua;
         }
         {
-          plugin = nvim-tree-lua;
-          config = toLuaFile ./nvim/plugins/nvim-tree.lua;
-        }
-        {
-          plugin = oil-nvim;
-          config = toLuaFile ./nvim/plugins/oil.lua;
-        }
-        {
           plugin = tmux-nvim;
           config = toLuaFile ./nvim/plugins/tmux.lua;
         }
@@ -240,6 +233,8 @@
           plugin = telescope-nvim;
           config = toLuaFile ./nvim/plugins/telescope.lua;
         }
+        nvim-tree-lua
+        oil-nvim
         mason-nvim
         mason-lspconfig-nvim
         cmp-nvim-lsp
@@ -259,7 +254,6 @@
       '';
     };
   };
-
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
