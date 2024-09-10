@@ -25,7 +25,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.tvaskisalo = import ../home.nix;
+              users.tvaskisalo = import ./home.nix;
             };
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
