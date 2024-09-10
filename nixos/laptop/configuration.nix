@@ -112,6 +112,7 @@
     #  wget
     git
     nodejs
+    python3
     unzip
     nerdfonts
     gcc
