@@ -16,7 +16,7 @@ lspconfig.rust_analyzer.setup({
 		},
 	},
 })
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	capabilities = capabilities,
 })
 lspconfig.nixd.setup({
