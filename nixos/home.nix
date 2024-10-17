@@ -160,14 +160,11 @@
     };
 
     neovim = let
-      toLuaFile = file: ''
-        lua << EOF
+      toFile = file: ''
         ${builtins.readFile file}
-        EOF
       '';
     in {
       enable = true;
-
       viAlias = true;
       vimAlias = true;
 
@@ -195,43 +192,53 @@
       plugins = with pkgs.vimPlugins; [
         {
           plugin = nvim-lspconfig;
-          config = toLuaFile ./nvim/plugins/lsp-config.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/lsp-config.lua;
         }
         {
           plugin = alpha-nvim;
-          config = toLuaFile ./nvim/plugins/alpha.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/alpha.lua;
         }
         {
           plugin = catppuccin-nvim;
-          config = toLuaFile ./nvim/plugins/catppuccin.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/catppuccin.lua;
         }
         {
           plugin = completion-nvim;
-          config = toLuaFile ./nvim/plugins/completions.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/completions.lua;
         }
         {
           plugin = nvim-dap;
-          config = toLuaFile ./nvim/plugins/debugging.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/debugging.lua;
         }
         {
           plugin = lualine-nvim;
-          config = toLuaFile ./nvim/plugins/lualine.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/lualine.lua;
         }
         {
           plugin = none-ls-nvim;
-          config = toLuaFile ./nvim/plugins/none-ls.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/none-ls.lua;
         }
         {
           plugin = tmux-nvim;
-          config = toLuaFile ./nvim/plugins/tmux.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/tmux.lua;
         }
         {
           plugin = nvim-treesitter;
-          config = toLuaFile ./nvim/plugins/treesitter.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/treesitter.lua;
         }
         {
           plugin = telescope-nvim;
-          config = toLuaFile ./nvim/plugins/telescope.lua;
+          type = "lua";
+          config = toFile ./nvim/plugins/telescope.lua;
         }
         nvim-tree-lua
         oil-nvim
@@ -262,7 +269,7 @@
   # You can update home Manager without changing this value. See
   # the home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
