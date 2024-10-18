@@ -3,6 +3,7 @@ require("catppuccin").setup({
 	transparent_background = true,
 	integrations = {
 		treesitter = true,
+		nvimtree = true,
 	},
 })
 vim.cmd.colorscheme("catppuccin")

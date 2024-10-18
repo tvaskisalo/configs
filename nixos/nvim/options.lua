@@ -1,7 +1,7 @@
 -- Lint settings
 vim.o.number = true -- Show line numbers
 vim.o.tabstop = 2 -- Tab length
-vim.o.shiftwidth = 2 -- Indentation space count
+vim.o.shiftwidth = 4 -- Indentation space count
 vim.o.smartindent = true -- Auto indent lines
 vim.o.wrap = false -- Disable line wrap
 
@@ -44,7 +44,7 @@ vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
 -- None-ls keybinds
 vim.keymap.set("n", "<leader>gf", function()
-	vim.lsp.buf.format({ async = false })
+	vim.lsp.buf.format({ async = false, timeout_ms = 2000 })
 end, {})
 
 -- Oil keybinds
