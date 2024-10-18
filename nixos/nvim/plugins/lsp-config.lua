@@ -1,6 +1,10 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 lspconfig.kotlin_language_server.setup({
+	init_options = {
+		-- Fixes kotlin_language_server crashing on opening kotlin file
+		storagePath = vim.fn.resolve(vim.fn.stdpath("cache") .. "/kotlin_language_server"),
+	},
 	capabilities = capabilities,
 })
 lspconfig.lua_ls.setup({
