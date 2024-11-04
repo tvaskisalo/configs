@@ -170,6 +170,7 @@
 
       extraPackages = with pkgs; [
         #  LSP
+        clang-tools
         nixd
         typescript
         lua-language-server
@@ -178,6 +179,8 @@
         kotlin-language-server
         typescript-language-server
         #  Linters
+        astyle
+        cppcheck
         stylua
         prettierd
         ktlint

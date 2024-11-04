@@ -115,7 +115,7 @@
     python3
     unzip
     nerdfonts
-    gcc
+    clang
     xclip
     gh
     spotify

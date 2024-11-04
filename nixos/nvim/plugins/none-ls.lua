@@ -16,17 +16,19 @@ null_ls.setup({
 		end
 	end,
 	sources = {
-		null_ls.builtins.formatting.rustywind, -- TailwindCSS
-		null_ls.builtins.formatting.stylua, -- Lua
-		null_ls.builtins.formatting.prettierd, -- Typescript/Javascript
-		null_ls.builtins.formatting.nixfmt, -- Nix
-		null_ls.builtins.formatting.ktlint, -- Kotlin
-		null_ls.builtins.formatting.black, -- Python
-		null_ls.builtins.diagnostics.ktlint, -- Kotlin
-		null_ls.builtins.diagnostics.alex, -- Markdown
+		null_ls.builtins.formatting.rustywind,    -- TailwindCSS
+		null_ls.builtins.formatting.stylua,       -- Lua
+		null_ls.builtins.formatting.prettierd,    -- Typescript/Javascript
+		null_ls.builtins.formatting.nixfmt,       -- Nix
+		null_ls.builtins.formatting.ktlint,       -- Kotlin
+		null_ls.builtins.formatting.black,        -- Python
+		null_ls.builtins.formatting.astyle,       -- Arduino/C/CPP
+		null_ls.builtins.diagnostics.ktlint,      -- Kotlin
+		null_ls.builtins.diagnostics.alex,        -- Markdown
 		null_ls.builtins.diagnostics.markdownlint_cli2, -- Markdown
-		null_ls.builtins.diagnostics.statix, -- Nix
-		null_ls.builtins.diagnostics.pylint, -- Python
-		null_ls.builtins.completion.luasnip, -- Lua
+		null_ls.builtins.diagnostics.statix,      -- Nix
+		null_ls.builtins.diagnostics.pylint,      -- Python
+		null_ls.builtins.diagnostics.cppcheck,    -- C/CPP
+		null_ls.builtins.completion.luasnip,      -- Lua
 	},
 })
