@@ -2,11 +2,8 @@
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     ${pkgs.waybar}/bin/waybar &
-    ${pkgs.swww}/bin/swww init &
-
-    sleep 1
-
-    ${pkgs.swww}/bin/swww img ${./wallpaper.png} &
+    swww-daemon &
+    swww img ${./wallpaper.png} &
   '';
 in {
   wayland.windowManager.hyprland = {
