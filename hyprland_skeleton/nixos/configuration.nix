@@ -12,12 +12,23 @@
   # Bootloader systemd-boot
   boot.loader = {
     systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 10;
     efi.canTouchEfiVariables = true;
   };
   # Bootloader grub
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/sda";
   # boot.loader.grub.useOSProber = true;
+
+  # Nixos garbage collection
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
+    settings.auto-optimise-store = true;
+  };
 
   networking = {
     hostName = "tvaskisalo"; # Define your hostname.
