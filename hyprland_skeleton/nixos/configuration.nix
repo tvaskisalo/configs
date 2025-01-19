@@ -68,6 +68,7 @@
     inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
 
   services = {
+    passSecretService.enable = true;
     displayManager.sddm.enable = true;
     xserver = {
       enable = true;
