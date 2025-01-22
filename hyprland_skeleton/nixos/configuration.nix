@@ -67,6 +67,8 @@
   programs.waybar.package =
     inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
 
+  xdg.portal.enable = true;
+
   services = {
     passSecretService.enable = true;
     displayManager.sddm.enable = true;
