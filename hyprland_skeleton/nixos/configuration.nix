@@ -137,6 +137,7 @@
     git
     nodejs
     python3
+    poetry
     unzip
     nerdfonts
     clang
