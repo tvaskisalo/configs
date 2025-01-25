@@ -1,9 +1,10 @@
 { config, pkgs, inputs, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.waybar}/bin/waybar &
-    swww-daemon &
-    swww img ${./wallpaper.png} &
+        ${pkgs.waybar}/bin/waybar &
+        swww-daemon &
+        swww img ${./wallpaper.png} &
+    		rustup default nightly
   '';
 in {
   wayland.windowManager.hyprland = {

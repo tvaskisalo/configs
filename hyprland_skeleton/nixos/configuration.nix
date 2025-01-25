@@ -144,7 +144,7 @@
     spotify
     steam
     wl-clipboard
-
+    rustup
     # Hyprland
     inputs.swww.packages.${pkgs.system}.swww
   ];
