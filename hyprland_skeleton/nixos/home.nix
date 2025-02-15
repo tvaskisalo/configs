@@ -237,9 +237,10 @@ in {
         rust-analyzer
         markdown-oxide
         kotlin-language-server
+        haskell-language-server
         typescript-language-server
         #  Linters
-        astyle
+        luajitPackages.haskell-tools-nvim
         cppcheck
         stylua
         prettierd
@@ -304,6 +305,7 @@ in {
           type = "lua";
           config = toFile ./nvim/plugins/telescope.lua;
         }
+        haskell-tools-nvim
         nvim-tree-lua
         oil-nvim
         mason-nvim

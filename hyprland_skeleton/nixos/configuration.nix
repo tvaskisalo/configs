@@ -138,6 +138,9 @@
     nodejs
     python3
     poetry
+    haskellPackages.stack
+    ghc
+    zlib
     unzip
     nerdfonts
     clang
