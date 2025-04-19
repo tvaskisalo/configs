@@ -156,7 +156,10 @@
       '';
 
       # set some aliases, feel free to add more or remove some
-      shellAliases = { k = "kubectl"; };
+      shellAliases = {
+        k = "kubectl";
+        rebuild = "sudo nixos-rebuild switch --flake .#tvaskisalo";
+      };
     };
 
     neovim = let
