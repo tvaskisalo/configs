@@ -10,13 +10,14 @@
   ];
 
   # Bootloader systemd-boot
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.kernelModules = [ "amdgpu" ];
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.kernelModules = [ "amdgpu" ];
 
   networking = {
     hostName = "tvaskisalo"; # Define your hostname.
@@ -62,12 +63,12 @@
   # Enable the X11 windowing system.
   services = {
     passSecretService.enable = true;
+    displayManager.sddm.enable = true;
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
       # Enable the KDE Plasma Desktop Environment.
       desktopManager.plasma5.enable = true;
-      displayManager.sddm.enable = true;
       # Configure keymap in X11
       xkb = {
         variant = "nodeadkeys";
@@ -102,8 +103,6 @@
       enable = true;
       enable32Bit = true;
     };
-
-    pulseaudio.enable = false;
 
     # Enable bluetooth
     bluetooth.enable = true;
