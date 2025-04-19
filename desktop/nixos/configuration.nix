@@ -109,7 +109,7 @@
     isNormalUser = true;
     description = "tvaskisalo";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [ firefox kate ];
+    packages = with pkgs; [ firefox ];
   };
 
   # Allow unfree packages
@@ -153,7 +153,6 @@
     steam
     prismlauncher
     jdk21
-
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
