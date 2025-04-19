@@ -22,6 +22,16 @@
     hostName = "tvaskisalo"; # Define your hostname.
     networkmanager.enable = true; # Enable networking
   };
+
+  # Nixos garbage collection
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
+    settings.auto-optimise-store = true;
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
